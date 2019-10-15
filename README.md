@@ -5,3 +5,5 @@ STEPS:
 3) nodemon server.js
 4) cd Client
 5) ng serve
+6) open browser 
+7) app is running on http://localhost:4200
