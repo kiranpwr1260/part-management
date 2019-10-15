@@ -1,8 +1,8 @@
 # part-management
 
-Angular cli: 8.1.2
-node: 10.15.3
-mongoD version : 4.0.8
+Angular cli: 8.1.2,  
+node: 10.15.3,   
+mongoD version : 4.0.8,  
 local mongoDB used
 
 
