@@ -1,4 +1,11 @@
 # part-management
+
+Angular cli: 8.1.2
+node: 10.15.3
+mongoD version : 4.0.8
+local mongoDB used
+
+
 STEPS:
 1) enter command 'npm i' in server and client
 2) cd server
