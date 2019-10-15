@@ -1,0 +1,24 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header">
+                <div class="md-0">
+                    <h3>Login</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" formControlName="email" name="email" class="form-control rounded-0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Passwrd</label>
+                        <input type="password" formControlName="password" name="password" class="form-control rounded-0" required>
+                    </div>
+                    <button type="submit" class="btn btn-success float-right">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

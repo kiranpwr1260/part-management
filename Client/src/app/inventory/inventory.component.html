@@ -1,0 +1,71 @@
+<div class="card  mt-3">
+        <div class="card-header">
+          <label>inventory</label>
+    <button class="btn btn-outline-dark ml-1" (click)="openModal()">Add</button>
+        </div>
+        <div class="card-body">
+                <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Batch No.</th>
+                            <th scope="col">In Date</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">In Stock</th>
+                            <th scope="col">Out</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of inventoryList; let  i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{item.part.name}}</td>
+                            <td>{{item.batchNo}}</td>
+                            <td>{{item.inDate | date:'medium'}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.inStock}}</td>
+                            <td>{{item.out}}</td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+        </div>
+      </div>
+
+<ng-template #addInventoryModal>
+        <div class="modal-header">
+                <h4 class="modal-title pull-left">Modal</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <form [formGroup]="addInvForm">
+                            <div class="form-group">
+                                <label for="batchNo">Batch No</label>
+                                <input type="number" class="form-control" formControlName="batchNo" id="batchNo"
+                                    placeholder="name@example.com" />
+                            </div>
+                            <div class="form-group">
+                                <label for="part">Part</label>
+                                <select class="form-control" formControlName="part" id="part">
+                                    <option *ngFor="let item of partList" value="{{item._id}}">{{item.name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                    <label for="inDate">In date</label>
+                                    <input type="date" class="form-control" formControlName="inDate" id="inDate"
+                                        placeholder="name@example.com" />
+                                </div>
+                            <div class="form-group">
+                                <label for="quantity">quantity</label>
+                                <input type="number" class="form-control" formControlName="quantity" id="quantity"
+                                    placeholder="name@example.com" />
+                            </div>
+                        </form>
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn-outline-dark pull-right" aria-label="Close" (click)="saveInventory()">Save</button>
+            </div>
+</ng-template>
+  

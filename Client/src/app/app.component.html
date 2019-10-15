@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" routerLink="/inventory" routerLinkActive="active">Shopping</a>
+    <ul *ngIf="_authService.loggedIn()" class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/inventory" routerLinkActive="active">Inventory<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/cart" routerLinkActive="active">Cart</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/part" routerLinkActive="active">Part</a>
+        </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" novalidate>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">Logout</a>
+            </li>
+          </ul>
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button> -->
+    </form>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet (activate)='onActivate($event)'></router-outlet>
+</div>
