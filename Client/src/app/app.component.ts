@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './login/shared/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,14 @@ import { AuthService } from './login/shared/auth/auth.service';
 })
 export class AppComponent {
   title = 'Shopping';
-  constructor(private _authService : AuthService){}
+  constructor(private _authService : AuthService, private router: Router){}
 
   onActivate(event){
-    console.log("------------------- : ",event);
     // alert(event);
+  }
+
+  logout(){
+    this._authService.logout();
   }
 
 }

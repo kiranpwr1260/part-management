@@ -3,21 +3,17 @@ var jwt=require("jsonwebtoken");
 
 module.exports={
     getRequest : (req,res,next)=>{
-        console.log("/get request...");
         res.status(200).send({
             result : "/get request"
         });
     },
     registerUser : (req,res,next)=>{
-        console.log("/register request...",req.body);
         databaseOperation.registerUser(req.body,(error,data)=>{
             if(error)
             {
-                console.log("error : ",error);
             }
             else
             {
-                console.log("data : ",data);
                 
                 if(data)
                 {
@@ -31,18 +27,15 @@ module.exports={
         });
     },
     loginUser : (req,res,next)=>{
-        console.log("/login request...",req.body);
         databaseOperation.loginUser(req.body,(error,data)=>{
             var tempStatus=false;
             let payload=null;
             let token=null;
             if(error)
             {
-                console.log("error : ",error);
             }
             else
             {
-                console.log("user login data : ",data);
                 if(data)
                 {
                     tempStatus=true;
@@ -60,7 +53,6 @@ module.exports={
         });
     },
     getEvents : (req,res,next)=>{
-        console.log("/getEvents request...");
         databaseOperation.getEvents((error,data)=>{
             var tempStatus=false;
             res.status(200).send({
@@ -72,7 +64,6 @@ module.exports={
         });
     },
     getSpecailEvents : (req,res,next)=>{
-        console.log("/getSpecailEvents request...");
         databaseOperation.getSpecailEvents((error,data)=>{
             var tempStatus=false;
             res.status(200).send({

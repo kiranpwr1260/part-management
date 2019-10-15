@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   constructor(private _auth : AuthService,private _router : Router, private fb : FormBuilder,private toastr: ToastrService ) { }
 
   ngOnInit() {
-    console.log('logged',this._auth.loggedIn())
     if(this._auth.loggedIn()){
       this._router.navigate['/inventory']
     }
@@ -35,9 +34,7 @@ export class LoginComponent implements OnInit {
       this.toastr.error('invalid form')
       return;
     }
-    console.log("login data : ",this.loginForm.value);
     this._auth.loginUser(this.loginForm.value).subscribe((res)=>{
-      console.log("response : ",res);
       if(res.result)
       {
         localStorage.setItem("token",res.token);
@@ -46,7 +43,6 @@ export class LoginComponent implements OnInit {
         this.toastr.error('invalid Id or Password')
       }
     },(error)=>{
-      console.log("error : ",error);
       this.toastr.error(error)
     });
   }

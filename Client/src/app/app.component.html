@@ -24,7 +24,7 @@
               <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" *ngIf="_authService.loggedIn()" (click)="_authService.logout()">Logout</a>
+              <a class="nav-link" *ngIf="_authService.loggedIn()" (click)="logout()">Logout</a>
             </li>
           </ul>
       <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->

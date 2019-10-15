@@ -15,12 +15,9 @@ export class SpecialEventsComponent implements OnInit {
   constructor(private _event : EventService,private _router : Router) { }
 
   ngOnInit() {
-    console.log("getSpecialEvents...");
     this._event.getSpecialEvents().subscribe((res)=>{
-      console.log("response : ",res);
       this.specialEvents=res.data;
     },(err)=>{
-      console.log("error is : ",err);
       if(err instanceof HttpErrorResponse)
       {
         if(err.status===401)

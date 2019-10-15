@@ -6,7 +6,6 @@ module.exports={
         new userSchema(obj).save(callback);
     },
     loginUser : (obj,callback)=>{
-        console.log("databaseOperation : ",obj);
         userSchema.findOne({
             "$and" : [
                 {"email" : obj.email},

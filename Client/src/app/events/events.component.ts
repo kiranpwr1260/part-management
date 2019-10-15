@@ -12,12 +12,9 @@ export class EventsComponent implements OnInit {
   constructor(private _event : EventService) { }
 
   ngOnInit() {
-    console.log("getEvents...");
     this._event.getEvents().subscribe((response)=>{
-      console.log("response : ",response);
       this.events=response.data;
     },(error)=>{
-      console.log("error : ",error);
     });
   }
 }

@@ -25,7 +25,6 @@ export class InventoryComponent implements OnInit {
   getInventory() {
     this.inventoryService.getInv().subscribe(data=>{
       this.inventoryList = data.inventorys;
-      console.log('inventoryList list---',this.inventoryList)
      },err=>{
        this.toastr.error('err loading');
      })
@@ -33,7 +32,6 @@ export class InventoryComponent implements OnInit {
   getAllParts() {
     this.partService.getParts().subscribe(data=>{
      this.partList = data.parts;
-     console.log('list---',this.partList)
     },err=>{
       this.toastr.error('err loading');
     })
@@ -62,7 +60,6 @@ export class InventoryComponent implements OnInit {
     this.modalRef.hide();
   }
   saveInventory() {
-    console.log('this form', this.addInvForm)
     if(this.addInvForm.invalid){
         return;
     }
@@ -74,9 +71,7 @@ export class InventoryComponent implements OnInit {
       quantity:this.addInvForm.value.quantity
     }
 
-    console.log('inv====>',inv);
     this.inventoryService.createInv(inv).subscribe(res=>{
-      console.log(res)
       this.getInventory();
       this.modalRef.hide();
     },err=>{

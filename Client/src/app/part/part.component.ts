@@ -23,7 +23,6 @@ export class PartComponent implements OnInit {
   getAllParts() {
     this.partServices.getParts().subscribe(data=>{
       this.partList = data.parts;
-      console.log('list---',this.partList)
      },err=>{
        this.toastr.error('err loading');
      })
@@ -43,12 +42,10 @@ export class PartComponent implements OnInit {
       this.modalRef.hide();
     }
     savePart(){
-      console.log('this form',this.addPartForm)
     if(this.addPartForm.invalid){
         return;
     }
       this.partServices.createPart(this.addPartForm.value).subscribe(res=>{
-        console.log(res)
         this.getAllParts();
         this.modalRef.hide();
       },err=>{

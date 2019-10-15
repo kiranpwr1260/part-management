@@ -22,20 +22,17 @@ module.exports=router;
 
 function verifyRegister(req,res,next)
 {
-    console.log("------ verifyRegister... : ",req.headers);
     return res.status(401).send("unAuthorization request");
 }
 
 function verifyToken(req,res,next)
 {
-    console.log("verifyToken...",req.headers);
     
     if(!req.headers.authorization)
     {
         return res.status(401).send("unAuthorized request");
     }
     let token=req.headers.authorization.split(" ")[1];
-    console.log("token : "+token);
     
     if(token==="null")
     {
@@ -43,7 +40,6 @@ function verifyToken(req,res,next)
     }
     
     let payload=jwt.verify(token,"kiranpwr143@gmail.com");
-    console.log("payload : ",payload);
     
     if(!payload)
     {

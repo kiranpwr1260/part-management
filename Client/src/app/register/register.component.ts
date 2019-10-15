@@ -31,15 +31,12 @@ export class RegisterComponent implements OnInit {
       this.toastr.error('invalid form')
       return;
     }
-    console.log("register data : ",this.registerForm.value);
     this._auth.registerUser(this.registerForm.value).subscribe((res)=>{
-      console.log("response : ",res);
       if(res.result)
       {
         this._router.navigate(["/login"]);
       }
     },(error)=>{
-      console.log("error : ",error);
     });
   }
 

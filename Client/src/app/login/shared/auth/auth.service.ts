@@ -15,13 +15,11 @@ export class AuthService {
 
   registerUser(obj) : Observable<any>
   {
-    console.log("register service data : ",obj);
     return this._http.post(this.registerUrl,obj);
   }
 
   loginUser(obj) : Observable<any>
   {
-    console.log("login service data : ",obj);
     return this._http.post(this.loginUrl,obj);
   }
 
@@ -38,6 +36,6 @@ export class AuthService {
   logout()
   {
     localStorage.removeItem("token");
-    this._router.navigate(["/events"]);
+    this._router.navigate(["/login"]);
   }
 }
